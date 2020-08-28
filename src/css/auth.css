@@ -1,0 +1,20 @@
+.auth-form {
+  padding: 20px 30px;
+}
+
+.register-card {
+  width: 35rem;
+  color: orange;
+}
+.login-card {
+  width: 35rem;
+  color: rgb(163, 20, 163);
+}
+.alreadyusertext {
+  font-size: 16px;
+}
+.logoName {
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}

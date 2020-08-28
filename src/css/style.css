@@ -1,0 +1,16 @@
+.center-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.align-item-horizontal {
+  padding-left: 50%;
+  padding-right: auto;
+  /* transform: translate(-50%, 0%); */
+}
+
+.padding-small {
+  padding: 10px, 200px;
+}
