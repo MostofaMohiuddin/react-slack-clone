@@ -8,3 +8,12 @@ export const setUser = (User) => {
     },
   };
 };
+
+export const clearUser = (User) => {
+  return {
+    type: actionTypes.CLEAR_USER,
+    payload: {
+      currentUser: null,
+    },
+  };
+};
