@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import firebase from "../../config/firebase";
-import { Grid, Header, Icon, Dropdown } from "semantic-ui-react";
+import { Grid, Header, Icon, Dropdown, Image } from "semantic-ui-react";
+import { connect } from "react-redux";
 
 class UserPanel extends Component {
+  state = {
+    user: this.props.currentUser,
+  };
   dropDownOptions = () => [
     {
       key: "user",
       text: (
         <span>
-          Signed in as <strong>User</strong>
+          Signed in as <strong>{this.state.user.displayName}</strong>
         </span>
       ),
       disabled: true,
@@ -45,9 +49,18 @@ class UserPanel extends Component {
           </Grid.Row>
 
           {/* user dropdown */}
-          <Header style={{ padding: ".5em" }} as="h4" inverted>
+          <Header style={{ padding: "1.5em" }} as="h4" inverted>
             <Dropdown
-              trigger={<span>User</span>}
+              trigger={
+                <span>
+                  <Image
+                    src={this.state.user.photoURL}
+                    spaced="right"
+                    avatar
+                  ></Image>
+                  {this.state.user.displayName}
+                </span>
+              }
               options={this.dropDownOptions()}
             ></Dropdown>
           </Header>
@@ -57,4 +70,10 @@ class UserPanel extends Component {
   }
 }
 
-export default UserPanel;
+const mapStatetoProps = (state) => {
+  return {
+    currentUser: state.user.currentUser,
+  };
+};
+
+export default connect(mapStatetoProps)(UserPanel);
